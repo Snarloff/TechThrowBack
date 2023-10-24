@@ -5,7 +5,7 @@
 ![Projetos Pessoais](https://img.shields.io/badge/Projetos%20Pessoais-lightgreen)
 ![Voltando ao Passado](https://img.shields.io/badge/Voltando%20ao%20Passado-blue)
 
-![TechThrowback](link-para-imagem-do-logo-se-houver)
+![Banner](https://github.com/Snarloff/TechThrowBack/assets/46792575/aca92226-8c69-4199-b092-0ad65410a097)
 
 Bem-vindo ao TechThrowback! Este repositório é uma coleção de projetos de iniciante que representam minha jornada de aprendizado na programação. A cada projeto, você encontrará uma visão do meu progresso e da evolução das minhas habilidades ao longo do tempo.
 
