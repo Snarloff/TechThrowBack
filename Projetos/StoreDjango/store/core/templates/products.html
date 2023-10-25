@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+
+<section style="margin-top: 3.5%">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<img src="{{ object.image.url }}" width="512" height="512">
+			</div>
+			<div class="col-md-6" style="margin-top: 5%">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-text text-dark text-center">
+							R$ {{ object.price }}
+						</h4>
+						{% if object.discount_price %}
+							<p class="card-text text-muted mb-2 text-center">de R$ {{object.discount_price}} </p>
+						{% endif %}
+						<h5 class="card-subtitle text-muted">{{ object.description }}</h5>
+						
+						<button class="btn-cart mt-2 mb-2" style="width: 50%; align-content: center;">Adicionar ao carrinho <i class="fas fa-shopping-cart"></i></button>
+						<p class="card-footer text-muted">Produto postado em {{ object.created }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

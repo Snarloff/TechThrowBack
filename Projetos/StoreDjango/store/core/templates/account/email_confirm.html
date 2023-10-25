@@ -1,0 +1,36 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account %}
+
+{% block title %}Confirmar endereço de E-Mail{% endblock %}
+
+
+{% block content %}
+
+<section style="margin-top: 7%">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="card">
+					<h3 class="card-title mb-2 mt-2 text-center text-dark">Confirmar E-Mail</h3>
+					{% if confirmation %}
+						{% user_display confirmation.email_address.user as user_display %}
+						<h5 class="card-subtitle mt-2 mb-2 text-dark text-center">Por favor confirme que <a href="mailto:{{ email }}">{{ email }}</a> é um endereço de e-mail do usuário {{ user_display }}</h5>
+						<form method="POST" action="{% url 'account_confirm_email' confirmation.key %}">
+							{% csrf_token %}
+
+							<button type="submit" class="btn-purple" style="width: 100%">Confirmar</button>
+						</form>
+					{% else %}
+						{% url 'account_email' as email_url %}
+						<h5 class="card-subtitle mt-2 mb-2 text-dark text-center">Este link de confirmação de email expirou ou é inválido. Por favor <a href="{{ email_url }}"></a>, emitir uma nova solicitação de confirmação por email</h5>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

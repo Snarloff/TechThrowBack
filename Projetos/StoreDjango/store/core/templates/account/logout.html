@@ -1,0 +1,32 @@
+{% extends "account/base.html" %}
+
+{% block title %}Sair{% endblock %}
+
+{% block content %}
+
+<section style="margin-top: 9%">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-5">
+				<div class="card">
+					<h3 class="card-header text-center text-dark mb-2">Logout</h3>
+					<div class="container">
+						<h4 class="card-text text-center text-dark">
+							Você tem certeza que deseja sair?
+						</h4>
+						<form method="POST" action="{% url 'account_logout' %}">
+							{% csrf_token %}
+							{% if redirect_field_value %}
+								<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+							{% endif %}
+					</div>
+						<button type="submit" class="btn-purple mt-2">Confirmar</button>
+					</form>			
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

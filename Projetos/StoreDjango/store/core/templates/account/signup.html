@@ -1,0 +1,64 @@
+{% extends "account/base.html" %}
+
+{% block title %}Registro{% endblock %}
+
+{% block content %}
+
+<section style="margin-top: 2%">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-5">
+				<div class="card">
+					<h3 class="card-title text-center text-dark mb-2 mt-2">Registrar</h3>
+					<div class="container">
+						<form method="POST" action="{% url 'account_signup' %}">
+							{% csrf_token %}
+							{% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+              {% endif %}
+              <p class="text-muted text-center mb-2 mt-2">Você já possui uma conta? <a href="{{login_url}}">Clique para realizar login.</a></p>
+              {% if form.errors %}
+              	{% for field in form %}
+              		{% for error in field.errors %}
+              			<p class="text-danger text-center mb-2 mt-0">{{error}}</p>
+              		{% endfor %}
+              	{% endfor %}
+              {% endif %}
+			
+              <div class="page">
+	              <label class="field a-field a-field_a1">
+	                <input class="field__input a-field__input" type="text" name="username" placeholder="Ex: Snarloff" autofocus="autofocus" minlength="1" maxlength="150" required="" id="id_username">
+	                <span class="a-field__label-wrap">
+	                  <span class="a-field__label text-dark">Nome de Usuário</span>
+	                </span>
+	              </label>
+	              <label class="field a-field a-field_a2">
+	                <input class="field__input a-field__input" type="email" name="email" placeholder="Ex: snarloff@djangostore.com" id="id_email" required="">
+	                <span class="a-field__label-wrap">
+	                  <span class="a-field__label text-dark">E-mail</span>
+	                </span>
+	              </label>
+	              <label class="field a-field a-field_a3">
+	                <input class="field__input a-field__input"  type="password" name="password1" placeholder="Ex: 123456" required="" id="id_password1">
+	                <span class="a-field__label-wrap">
+	                  <span class="a-field__label text-dark">Senha</span>
+	                </span>
+	              </label>
+	              <label class="field a-field a-field_a3">
+	                <input class="field__input a-field__input" type="password" name="password2" placeholder="Ex: 123456" required="" id="id_password2">
+	                <span class="a-field__label-wrap">
+	                  <span class="a-field__label text-dark">Senha (novamente)</span>
+	                </span>
+	              </label> 
+            	</div> 
+					</div>
+						<button type="submit" class="btn-purple mt-2">Confirmar</button>
+					</form>			
+				</div>
+			</div>			
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}
