@@ -1,1 +1,8 @@
 .vscode/**
+**/node_modules/
+**/pnpm-lock.yaml
+**/yarn.lock
+**/package-lock.json
+**/**.exe
+**/Linguagem-C
+**/PerguntasRespostas
