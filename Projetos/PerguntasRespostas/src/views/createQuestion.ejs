@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<%- include ('partials/header') %>
+	<title>Projeto: Perguntas e Respostas</title>
+</head>
+<body>
+	
+	<%- include ('partials/navbar') %>
+
+	<div class="container">
+		<div class="card" id="formQuestion">
+			<div class="card-header">
+				<h3 class="text-dark">Realizar Pergunta</h3>
+			</div>
+			<div class="card-body">
+				<form method="POST" action="/save-question">
+					<label class="text-dark">Título da pergunta</label>
+					<input name="titleQuestion" type="text" placeholder="Título" class="form-control mb-2" required="required">
+					<label class="text-dark">Descrição da pergunta</label>
+					<textarea name="descQuestion" rows="5" cols="50" placeholder="Descreva sua pergunta" class="form-control mb-2" required="required"></textarea>
+					<button class="btn btn-primary">Confirmar</button>
+				</form>
+			</div>
+		</div>
+	</div>  
+
+	<%- include('partials/footer') %>
+
+</body>
+</html>

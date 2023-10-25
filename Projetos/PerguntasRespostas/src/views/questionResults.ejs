@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<%- include ('partials/header') %>
+	<title>
+		Perguntas e Respostas: 
+		<% if (pergunta != undefined){ %>
+			<%=pergunta.title%>
+		<% } else { %>
+			Não encontrada
+		<% } %>
+	</title>
+</head>
+<body>
+	
+	<%- include ('partials/navbar') %>
+
+	<div class="container mb-2">
+		<% if (pergunta != undefined){ %>
+			<div class="card mb-2">
+				<div class="card-body">
+					<h2 class="mb-2"><%=pergunta.title%></h2>
+					<hr>
+				<div class="card-header">
+					<p class="text-dark" style="font-size: 20px;"><%=pergunta.description%></p>
+					<hr>
+					<form method="POST" action="/answer">
+						<h3>Responder:</h3>
+						<textarea name="bodyAnswer" rows="5" cols="50" placeholder="Escreva sua resposta" class="form-control mb-2" required="required"></textarea>
+						<input type="text" name="questionId" hidden="hidden" value="<%=pergunta.id%>">
+						<button class="btn btn-primary">Confirmar</button>
+					</form>
+					<hr>
+					<h3>Respostas:</h3>
+					<hr>
+						<% if (resposta != '') { %>
+							<% resposta.forEach(function(resp){ %>
+								<div class="card">
+									<div class="card-body">
+										<p class="text-dark" style="font-size: 20px;"><%=resp.body%></p>
+									</div>
+									<div class="card-footer">
+										<p class="text-dark" style="font-size: 15px;"><%=resp.createdAt%></p>
+									</div>
+								</div>
+							<% }) %>
+						<% } else{ %>
+							<p class="text-dark" style="font-size: 20px;">Nenhuma resposta. Seja o primeiro a respostar esta pergunta!</p>
+							<hr>
+						<% } %>
+						<hr>
+				</div>
+				<div class="card-footer">
+					<p class="text-dark" style="font-size: 16px;"><%=pergunta.createdAt%></p>
+				</div>
+				</div>
+		<% } else { %>
+			<h2 class="mb-2">Pergunta não encontrada, por favor retorne à página inicial clicando <a href="/">aqui</a></h2>
+		<% } %>
+	</div>
+
+	<%- include('partials/footer') %>
+
+</body>
+</html>
