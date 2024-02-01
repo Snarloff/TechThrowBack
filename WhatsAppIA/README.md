@@ -5,6 +5,8 @@
 ![OpenAI](https://img.shields.io/badge/OpenAI-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-blueviolet)
 
+![uploadai-api](https://github.com/Snarloff/TechThrowBack/assets/46792575/2200892b-71fa-480e-a75d-6878d360cc3d)
+
 ## Descrição
 
 Este projeto faz parte do repositório TechThrowback e representa uma experiência de automação para envio de mensagens no WhatsApp. Utiliza o pacote npm `venom-bot` para interagir com o WhatsApp e a API da OpenAI para processamento de linguagem natural.
