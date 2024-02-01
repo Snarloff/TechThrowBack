@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: #FFFFFF;
+  --bg-url: url(assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: #000000;
+  --bg-url: url(assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(assets/sun.svg);
+}
+
+body {
+  background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
+
+  /* * color image repeat position size */
+}
+
+body * {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+
+  /* * Asterístico significa todos os elementos, seletor universal */
+}
+
+#container {
+  width: 100%;
+  max-width: 588px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+  
+  /* * Centraliza aplicando margin right e left, em cima e em baixo não  */
+  /* * Por padrão display: block, consumindo toda largura da tela (linha) */
+  /* * Margin top, right, bottom, left */
+  /* * margin: 56px auto 0px; = margin-top: 56px; margin-right: auto; margin-bottom: 0px; margin-left: auto; */
+  /* * margin: 56px auto; = margin-top: 56px; margin-right: auto; margin-bottom: 56px; margin-left: auto; */
+}
+
+#profile {
+  text-align: center;
+  padding: 24px;
+
+  /* * Dessa forma, ele alinha ao centro sem precisar definir display block pelo elemento pai */
+  /* * Já o display block, não aceita o text-align */
+} 
+
+#profile img {
+  width: 112px;
+  border-radius: 9999px;
+
+  /* * display: block; */
+  /* * Por padrão display: inline, não é possível aplicar margin auto */
+  /* * margin: auto; = centraliza se for display block  */
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+
+  /* * font-size: 16px; O navegador por padrão já aplica 16px */
+}
+
+#switch {
+  width: 64px;
+  position: relative;
+
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: #FFFFFF var(--switch-bg-url) no-repeat center;
+  border-radius: 50%;
+  border: 0;
+  position: absolute;
+  z-index: 1;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 0;
+  
+  cursor: pointer;
+  animation: slide-back .4s;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+}
+
+.light #switch button {
+  animation: slide-in .4s forwards;
+
+  /* * left: initial volta ao padrão, maneira inicial */
+  /* * forwards significa que a animação não voltará para o início (to) */
+}
+
+#switch span {
+  display: block;
+
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  border-radius: 9999px;
+
+  /* * display: inline; por padrão */
+}
+
+ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background .2s;
+}
+
+/* * Pseudo Selector */
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+  display: flex;
+  
+  padding: 24px 0;
+  font-size: 24px;
+  
+  justify-content: center;
+}
+
+#social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+
+  transition: background .2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* * Telas com 700px pra cima */
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(assets/bg-desktop.jpg);
+  }
+
+  .light {
+    --bg-url: url(assets/bg-desktop-light.jpg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%; 
+  }
+  to {
+    left: 0;
+  }
+}
