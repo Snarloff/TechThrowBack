@@ -4,6 +4,8 @@
 ![Python](https://img.shields.io/badge/Python-blue)
 ![E-commerce](https://img.shields.io/badge/E--commerce-yellow)
 
+![dj](https://github.com/Snarloff/TechThrowBack/assets/46792575/6c95bbbd-e7e8-458d-b261-ee56a090b03a)
+
 ## Descrição
 
 Este projeto Django faz parte do repositório TechThrowback e representa um simples e-commerce de roupas. Ele fornece uma listagem de produtos e detalhes individuais para cada um deles.
